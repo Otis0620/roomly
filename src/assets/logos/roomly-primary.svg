@@ -1,0 +1,8 @@
+<svg width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <rect x="0" y="9" width="24.0" height="30.0" rx="3.0" fill="#EEF4FB"/>
+  <polygon points="0.0,21.0 12.0,9.0 24.0,21.0" fill="#185FA5" opacity="0.18"/>
+  <rect x="6.0" y="23.0" width="12.0" height="16.0" rx="2.0" fill="#185FA5"/>
+  <circle cx="14.9" cy="32.0" r="1.8" fill="#ffffff"/>
+  <text x="34" y="34" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="-0.5" fill="#185FA5">roomly</text>
+</svg>
