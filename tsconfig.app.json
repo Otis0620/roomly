@@ -17,10 +17,11 @@
     "jsx": "react-jsx",
 
     /* Linting */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     
