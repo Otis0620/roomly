@@ -7,7 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build output and dependencies
 node_modules
+coverage
 dist
 dist-ssr
 *.local
