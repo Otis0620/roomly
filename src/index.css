@@ -1,111 +1,130 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import "tailwindcss";
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+@theme {
+  /* Colors — navy */
+  --color-navy-900: #042C53;
+  --color-navy-800: #0C447C;
+  --color-navy-600: #185FA5;
+  --color-navy-400: #378ADD;
+  --color-navy-200: #85B7EB;
+  --color-navy-100: #B5D4F4;
+  --color-navy-50: #EEF4FB;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Colors — teal */
+  --color-teal-900: #04342C;
+  --color-teal-800: #085041;
+  --color-teal-600: #0F6E56;
+  --color-teal-400: #1D9E75;
+  --color-teal-200: #5DCAA5;
+  --color-teal-100: #9FE1CB;
+  --color-teal-50: #E1F5EE;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  /* Colors — red */
+  --color-red-800: #A32D2D;
+  --color-red-500: #DC3545;
+  --color-red-50: #FCEBEB;
+
+  /* Colors — orange */
+  --color-orange-700: #BA7517;
+  --color-orange-50: #FAEEDA;
+
+  /* Colors — gray */
+  --color-gray-900: #1a1a1a;
+  --color-gray-700: #555555;
+  --color-gray-600: #5F5E5A;
+  --color-gray-400: #999999;
+  --color-gray-300: #BBBBBB;
+  --color-gray-200: #e2e2e2;
+  --color-gray-50: #FAFAFA;
+
+  /* Colors — sand */
+  --color-sand-50: #F1EFE8;
+
+  /* Typography — font families */
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", Menlo, monospace;
+
+  /* Typography — font sizes */
+  --text-display: 32px;
+  --text-display--line-height: 1.2;
+  --text-display--letter-spacing: -0.3px;
+  --text-display--font-weight: 400;
+
+  --text-h1: 22px;
+  --text-h1--line-height: 1.2;
+  --text-h1--letter-spacing: -0.3px;
+  --text-h1--font-weight: 500;
+
+  --text-h2: 16px;
+  --text-h2--line-height: 1.2;
+  --text-h2--font-weight: 500;
+
+  --text-h3: 13px;
+  --text-h3--line-height: 1.5;
+  --text-h3--font-weight: 500;
+
+  --text-body: 13px;
+  --text-body--line-height: 1.5;
+  --text-body--font-weight: 400;
+
+  --text-sm: 12px;
+  --text-sm--line-height: 1.5;
+  --text-sm--font-weight: 400;
+
+  --text-micro: 11px;
+  --text-micro--line-height: 1.5;
+  --text-micro--font-weight: 400;
+
+  --text-price: 9px;
+  --text-price--line-height: 1.5;
+  --text-price--font-weight: 400;
+
+  /* Typography — font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* Typography — line heights */
+  --leading-tight: 1.2;
+  --leading-base: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Typography — letter spacing */
+  --tracking-tight: -0.3px;
+
+  /* Spacing — 4px base grid */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+
+  /* Border radius */
+  --radius: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 0 0 0.5px #D3D1C7;
+  --shadow-card-hover: 0 2px 8px 0 rgba(4, 44, 83, 0.08);
+  --shadow-modal: 0 8px 32px 0 rgba(4, 44, 83, 0.16);
+
+  /* Layout */
+  --width-content: 1280px;
+  --width-sidebar: 240px;
+  --width-auth-card: 500px;
+  --height-topbar: 52px;
+
+  /* Grid templates */
+  --grid-cols-detail: 1fr 340px;
+  --grid-cols-hotel-cards: repeat(auto-fill, minmax(280px, 1fr));
+  --grid-cols-metrics: repeat(4, 1fr);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
