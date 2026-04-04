@@ -1,5 +1,16 @@
-function App() {
-  return <h1 className="text-navy-900">Test</h1>;
-}
+import { Suspense } from 'react';
+import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
 
-export default App;
+import router from './core/router';
+import { store } from './core/store/store';
+
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Suspense>
+        <RouterProvider router={router} />
+      </Suspense>
+    </Provider>
+  );
+}
