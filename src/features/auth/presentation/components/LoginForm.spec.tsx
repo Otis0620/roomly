@@ -3,17 +3,19 @@ import 'reflect-metadata';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
-import { container } from '@/core/di/container';
-import { IDENTIFIERS } from '@/core/di/identifiers';
 import { configureStore } from '@reduxjs/toolkit';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 import LoginForm from './LoginForm';
+import type { AuthService } from '../../services/AuthService';
 import authReducer from '../../store/authSlice';
 
 const mockLogin = vi.fn();
+const mockAuthService = { login: mockLogin } as unknown as AuthService;
 
-container.rebind(IDENTIFIERS.AuthService).toConstantValue({ login: mockLogin });
+vi.mock('../../hooks/useAuthService', () => ({
+  useAuthService: () => mockAuthService,
+}));
 
 function renderForm() {
   const store = configureStore({ reducer: { auth: authReducer } });

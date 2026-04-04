@@ -1,8 +1,5 @@
 import Joi from 'joi';
 
-/**
- * Validation schema for the login form.
- */
 export const loginSchema = Joi.object({
   email: Joi.string().email({ tlds: false }).required().messages({
     'string.base': 'Email is required',

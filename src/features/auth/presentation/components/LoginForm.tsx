@@ -1,17 +1,15 @@
 import { useState } from 'react';
 
-import { container } from '@/core/di/container';
-import { IDENTIFIERS } from '@/core/di/identifiers';
 import { useAppDispatch } from '@/core/store/hooks';
 import LoadingSpinner from '@/core/ui/components/LoadingSpinner';
 
-import type { AuthService } from '../../services/AuthService';
+import { useAuthService } from '../../hooks/useAuthService';
 import { setCurrentUser } from '../../store/authSlice';
 import { loginSchema } from '../../validators/authValidators';
 
 export default function LoginForm() {
   const dispatch = useAppDispatch();
-  const authService = container.get<AuthService>(IDENTIFIERS.AuthService);
+  const authService = useAuthService();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,7 +22,9 @@ export default function LoginForm() {
     setEmail(value);
     setApiError('');
 
-    if (!emailError) return;
+    if (!emailError) {
+      return;
+    }
 
     const { error } = loginSchema.extract('email').validate(value);
 
@@ -35,7 +35,9 @@ export default function LoginForm() {
     setPassword(value);
     setApiError('');
 
-    if (!passwordError) return;
+    if (!passwordError) {
+      return;
+    }
 
     const { error } = loginSchema.extract('password').validate(value);
 
@@ -47,8 +49,13 @@ export default function LoginForm() {
 
     const { error } = loginSchema.extract(field).validate(value);
 
-    if (field === 'email') setEmailError(error ? error.message : '');
-    if (field === 'password') setPasswordError(error ? error.message : '');
+    if (field === 'email') {
+      setEmailError(error ? error.message : '');
+    }
+
+    if (field === 'password') {
+      setPasswordError(error ? error.message : '');
+    }
   }
 
   function validate() {
@@ -59,8 +66,13 @@ export default function LoginForm() {
 
     if (error) {
       for (const detail of error.details) {
-        if (detail.context?.key === 'email') setEmailError(detail.message);
-        if (detail.context?.key === 'password') setPasswordError(detail.message);
+        if (detail.context?.key === 'email') {
+          setEmailError(detail.message);
+        }
+
+        if (detail.context?.key === 'password') {
+          setPasswordError(detail.message);
+        }
       }
 
       return false;
@@ -72,7 +84,9 @@ export default function LoginForm() {
   async function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!validate()) return;
+    if (!validate()) {
+      return;
+    }
 
     setIsLoading(true);
 

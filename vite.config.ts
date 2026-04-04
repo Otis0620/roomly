@@ -30,6 +30,7 @@ export default defineConfig({
         'src/**/*Types.ts',
         'src/**/*types.ts',
         'src/**/I*.ts',
+        'src/**/hooks/**',
       ],
       thresholds: {
         lines: 100,
