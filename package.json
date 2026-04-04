@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint:check": "eslint \"src/**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
     "preview": "vite preview",
     "test": "vitest run --coverage",
