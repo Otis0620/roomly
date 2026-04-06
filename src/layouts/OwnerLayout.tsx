@@ -1,6 +1,8 @@
 import { Calendar, House, LayoutGrid, Star, User } from 'lucide-react';
 import { Outlet } from 'react-router-dom';
 
+import { selectCurrentUser } from '@/core/store/authSlice';
+import { useAppSelector } from '@/core/store/hooks';
 import Sidebar from '@/core/ui/components/Sidebar';
 import SidebarFooter from '@/core/ui/components/SidebarFooter';
 import SidebarHeader from '@/core/ui/components/SidebarHeader';
@@ -35,6 +37,10 @@ const navLinks: NavLink[] = [
 ];
 
 export default function OwnerLayout() {
+  const currentUser = useAppSelector(selectCurrentUser);
+
+  console.log(currentUser?.firstName);
+
   return (
     <div className="flex h-screen">
       <Sidebar>

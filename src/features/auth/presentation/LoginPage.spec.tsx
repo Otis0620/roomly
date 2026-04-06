@@ -3,11 +3,11 @@ import 'reflect-metadata';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
+import authReducer from '@/core/store/authSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { render, screen } from '@testing-library/react';
 
 import LoginPage from './LoginPage';
-import authReducer from '../store/authSlice';
 
 vi.mock('@/assets/logos/roomly-primary.svg', () => ({ default: 'roomly-logo.svg' }));
 vi.mock('./components/LoginForm', () => ({ default: () => <form aria-label="login" /> }));

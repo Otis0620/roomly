@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+import { setCurrentUser } from '@/core/store/authSlice';
 import { useAppDispatch } from '@/core/store/hooks';
 import LoadingSpinner from '@/core/ui/components/LoadingSpinner';
 
 import { useAuthService } from '../../hooks/useAuthService';
-import { setCurrentUser } from '../../store/authSlice';
 import { loginSchema } from '../../validators/authValidators';
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const authService = useAuthService();
 
@@ -94,6 +96,8 @@ export default function LoginForm() {
       const user = await authService.login({ email, password });
 
       dispatch(setCurrentUser(user));
+
+      navigate('/owner/dashboard');
     } catch {
       setApiError('Invalid email or password. Please try again.');
     } finally {

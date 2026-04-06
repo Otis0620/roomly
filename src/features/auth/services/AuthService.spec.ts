@@ -1,9 +1,10 @@
 import 'reflect-metadata';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import type { AuthUser } from '@/core/types/userTypes';
+
 import { AuthService } from './AuthService';
 import type { AuthApi } from '../api/AuthApi';
-import type { AuthUser } from '../types/authTypes';
 import { getAccessToken } from '../utils/accessToken';
 
 describe('AuthService', () => {
@@ -20,7 +21,13 @@ describe('AuthService', () => {
 
   describe('login', () => {
     it('should return the user from the api response', async () => {
-      const user: AuthUser = { id: '1', email: 'user@roomly.com', role: 'guest' };
+      const user: AuthUser = {
+        id: '1',
+        email: 'user@roomly.com',
+        firstName: 'James',
+        lastName: 'Brown',
+        role: 'guest',
+      };
 
       (mockAuthApi.login as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
         token: 'abc123',
@@ -33,7 +40,13 @@ describe('AuthService', () => {
     });
 
     it('should set the access token from the api response', async () => {
-      const user: AuthUser = { id: '1', email: 'user@roomly.com', role: 'guest' };
+      const user: AuthUser = {
+        id: '1',
+        email: 'user@roomly.com',
+        firstName: 'James',
+        lastName: 'Brown',
+        role: 'guest',
+      };
 
       (mockAuthApi.login as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
         token: 'abc123',
@@ -46,7 +59,13 @@ describe('AuthService', () => {
     });
 
     it('should call the api with the provided credentials', async () => {
-      const user: AuthUser = { id: '1', email: 'user@roomly.com', role: 'guest' };
+      const user: AuthUser = {
+        id: '1',
+        email: 'user@roomly.com',
+        firstName: 'James',
+        lastName: 'Brown',
+        role: 'guest',
+      };
       const credentials = { email: 'user@roomly.com', password: 'password' };
 
       (mockAuthApi.login as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
