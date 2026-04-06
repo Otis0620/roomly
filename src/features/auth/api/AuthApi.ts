@@ -5,9 +5,6 @@ import { IDENTIFIERS } from '@/core/di/identifiers';
 
 import type { LoginRequest, LoginResponse } from '../types/authTypes';
 
-/**
- * Handles all HTTP requests for the auth feature.
- */
 @injectable()
 export class AuthApi {
   constructor(@inject(IDENTIFIERS.HttpClient) private readonly httpClient: IHttpClient) {}

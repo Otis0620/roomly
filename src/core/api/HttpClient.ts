@@ -3,10 +3,6 @@ import { injectable } from 'inversify';
 
 import type { HttpClientConfig, IHttpClient } from './IHttpClient';
 
-/**
- * Axios-based HTTP client used to make API requests throughout the application.
- * Registered as a singleton in the DI container and injected into feature API classes.
- */
 @injectable()
 export class HttpClient implements IHttpClient {
   private readonly client: AxiosInstance;

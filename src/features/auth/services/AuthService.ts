@@ -6,9 +6,6 @@ import type { AuthApi } from '../api/AuthApi';
 import type { AuthUser, LoginRequest } from '../types/authTypes';
 import { setAccessToken } from '../utils/accessToken';
 
-/**
- * Handles authentication business logic for the auth feature.
- */
 @injectable()
 export class AuthService {
   constructor(@inject(IDENTIFIERS.AuthApi) private readonly authApi: AuthApi) {}
