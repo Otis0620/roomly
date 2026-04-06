@@ -111,11 +111,11 @@ export default function LoginForm() {
         value={email}
         onChange={(e) => handleEmailChange(e.target.value)}
         onBlur={() => validateOnBlur('email')}
-        className="w-full h-9 mt-1 px-3 rounded-(--radius) border border-gray-200 text-sm placeholder:text-body placeholder:font-light placeholder-gray-300 focus:outline-none focus:border-navy-400"
+        className="placeholder:text-body focus:border-navy-400 mt-1 h-9 w-full rounded-(--radius) border border-gray-200 px-3 text-sm placeholder-gray-300 placeholder:font-light focus:outline-none"
         placeholder="you@roomly.com"
       />
 
-      {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
+      {emailError && <p className="text-sm text-red-500">{emailError}</p>}
 
       <label htmlFor="password" className="text-sm font-light text-gray-700">
         Password
@@ -126,18 +126,18 @@ export default function LoginForm() {
         value={password}
         onChange={(e) => handlePasswordChange(e.target.value)}
         onBlur={() => validateOnBlur('password')}
-        className="w-full h-9 mt-1 px-3 rounded-(--radius) border border-gray-200 text-sm placeholder:text-body placeholder:font-light placeholder-gray-300 focus:outline-none focus:border-navy-400"
+        className="placeholder:text-body focus:border-navy-400 mt-1 h-9 w-full rounded-(--radius) border border-gray-200 px-3 text-sm placeholder-gray-300 placeholder:font-light focus:outline-none"
         placeholder="••••••••"
       />
 
-      {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
+      {passwordError && <p className="text-sm text-red-500">{passwordError}</p>}
 
-      {apiError && <p className="text-red-500 text-sm">{apiError}</p>}
+      {apiError && <p className="text-sm text-red-500">{apiError}</p>}
 
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full h-9.5 mt-1 rounded-(--radius) bg-navy-600 text-body text-white cursor-pointer hover:opacity-88 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="bg-navy-600 text-body mt-1 flex h-9.5 w-full cursor-pointer items-center justify-center gap-2 rounded-(--radius) text-white hover:opacity-88 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isLoading && <LoadingSpinner className="size-4" />}
         {isLoading ? 'Signing in...' : 'Sign in'}

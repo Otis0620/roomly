@@ -3,14 +3,14 @@ import type { RouteObject } from 'react-router-dom';
 
 import OwnerLayout from '@/layouts/OwnerLayout';
 
-export const hotelRoutes: RouteObject[] = [
+export const dashboardRoutes: RouteObject[] = [
   {
     element: createElement(OwnerLayout),
     children: [
       {
-        path: '/owner/listings',
-        element: createElement(lazy(() => import('./presentation/OwnerListingsPage'))),
-        handle: { title: 'My Listings' },
+        path: '/owner/dashboard',
+        element: createElement(lazy(() => import('./presentation/OwnerDashboardPage'))),
+        handle: { title: 'Owner Dashboard' },
       },
     ],
   },

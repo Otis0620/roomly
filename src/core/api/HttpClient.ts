@@ -1,7 +1,7 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig } from 'axios';
 import { injectable } from 'inversify';
 
-import type { IHttpClient, HttpClientConfig } from './IHttpClient';
+import type { HttpClientConfig, IHttpClient } from './IHttpClient';
 
 /**
  * Axios-based HTTP client used to make API requests throughout the application.
