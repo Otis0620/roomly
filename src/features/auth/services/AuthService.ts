@@ -8,6 +8,9 @@ import { setAccessToken } from '../utils/accessToken';
 
 @injectable()
 export class AuthService {
+  /**
+   * @param authApi - The authentication API client
+   */
   constructor(@inject(IDENTIFIERS.AuthApi) private readonly authApi: AuthApi) {}
 
   /**

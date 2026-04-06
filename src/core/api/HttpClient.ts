@@ -8,8 +8,6 @@ export class HttpClient implements IHttpClient {
   private readonly client: AxiosInstance;
 
   /**
-   * Creates an Axios instance configured with the base API URL.
-   *
    * @param getAccessToken - Function that returns the current access token
    */
   constructor(private readonly getAccessToken: () => string | null) {
@@ -23,68 +21,35 @@ export class HttpClient implements IHttpClient {
     this.registerRequestInterceptors();
   }
 
-  /**
-   * Sends a GET request to the given URL.
-   *
-   * @param url - Request path
-   * @param config - Optional Axios config
-   * @returns Response data
-   */
+  /** @inheritdoc */
   async get<T>(url: string, config?: HttpClientConfig): Promise<T> {
     const response = await this.client.get<T>(url, this.toAxiosRequestConfig(config));
 
     return response.data;
   }
 
-  /**
-   * Sends a POST request to the given URL.
-   *
-   * @param url - Request path
-   * @param data - Request body
-   * @param config - Optional Axios config
-   * @returns Response data
-   */
+  /** @inheritdoc */
   async post<T>(url: string, data?: unknown, config?: HttpClientConfig): Promise<T> {
     const response = await this.client.post<T>(url, data, this.toAxiosRequestConfig(config));
 
     return response.data;
   }
 
-  /**
-   * Sends a PUT request to the given URL.
-   *
-   * @param url - Request path
-   * @param data - Request body
-   * @param config - Optional Axios config
-   * @returns Response data
-   */
+  /** @inheritdoc */
   async put<T>(url: string, data?: unknown, config?: HttpClientConfig): Promise<T> {
     const response = await this.client.put<T>(url, data, this.toAxiosRequestConfig(config));
 
     return response.data;
   }
 
-  /**
-   * Sends a PATCH request to the given URL.
-   *
-   * @param url - Request path
-   * @param data - Request body
-   * @param config - Optional Axios config
-   * @returns Response data
-   */
+  /** @inheritdoc */
   async patch<T>(url: string, data?: unknown, config?: HttpClientConfig): Promise<T> {
     const response = await this.client.patch<T>(url, data, this.toAxiosRequestConfig(config));
 
     return response.data;
   }
 
-  /**
-   * Sends a DELETE request to the given URL.
-   *
-   * @param url - Request path
-   * @param config - Optional Axios config
-   * @returns Response data
-   */
+  /** @inheritdoc */
   async delete<T>(url: string, config?: HttpClientConfig): Promise<T> {
     const response = await this.client.delete<T>(url, this.toAxiosRequestConfig(config));
 
@@ -94,7 +59,7 @@ export class HttpClient implements IHttpClient {
   /**
    * Registers Axios request interceptors on the client instance.
    */
-  private registerRequestInterceptors() {
+  private registerRequestInterceptors(): void {
     this.client.interceptors.request.use((config) => {
       const token = this.getAccessToken();
 

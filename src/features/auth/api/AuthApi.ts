@@ -7,6 +7,9 @@ import type { LoginRequest, LoginResponse } from '../types/authTypes';
 
 @injectable()
 export class AuthApi {
+  /**
+   * @param httpClient - The HTTP client for making API requests
+   */
   constructor(@inject(IDENTIFIERS.HttpClient) private readonly httpClient: IHttpClient) {}
 
   /**
