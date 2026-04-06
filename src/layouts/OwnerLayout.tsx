@@ -2,6 +2,7 @@ import { Calendar, House, LayoutGrid, Star, User } from 'lucide-react';
 import { Outlet } from 'react-router-dom';
 
 import Sidebar from '@/core/ui/components/Sidebar';
+import SidebarFooter from '@/core/ui/components/SidebarFooter';
 import SidebarHeader from '@/core/ui/components/SidebarHeader';
 import SidebarNav, { type NavLink } from '@/core/ui/components/SidebarNav';
 
@@ -39,6 +40,7 @@ export default function OwnerLayout() {
       <Sidebar>
         <SidebarHeader />
         <SidebarNav navLinks={navLinks} />
+        <SidebarFooter />
       </Sidebar>
 
       <main className="flex-1 overflow-auto">
