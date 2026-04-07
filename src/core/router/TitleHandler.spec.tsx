@@ -14,7 +14,14 @@ vi.mock('react-router-dom', async (importOriginal) => {
 describe('TitleHandler', () => {
   it('should set document title to "Roomly" when no match has a title handle', () => {
     vi.mocked(useMatches).mockReturnValue([
-      { id: '0', pathname: '/', params: {}, data: undefined, loaderData: undefined, handle: undefined },
+      {
+        id: '0',
+        pathname: '/',
+        params: {},
+        data: undefined,
+        loaderData: undefined,
+        handle: undefined,
+      },
     ]);
 
     render(<TitleHandler />);
@@ -24,7 +31,14 @@ describe('TitleHandler', () => {
 
   it('should set document title with route title when a match has a title handle', () => {
     vi.mocked(useMatches).mockReturnValue([
-      { id: '0', pathname: '/', params: {}, data: undefined, loaderData: undefined, handle: { title: 'Dashboard' } },
+      {
+        id: '0',
+        pathname: '/',
+        params: {},
+        data: undefined,
+        loaderData: undefined,
+        handle: { title: 'Dashboard' },
+      },
     ]);
 
     render(<TitleHandler />);
@@ -34,7 +48,14 @@ describe('TitleHandler', () => {
 
   it('should use the last match with a title handle when multiple matches have titles', () => {
     vi.mocked(useMatches).mockReturnValue([
-      { id: '0', pathname: '/', params: {}, data: undefined, loaderData: undefined, handle: { title: 'Home' } },
+      {
+        id: '0',
+        pathname: '/',
+        params: {},
+        data: undefined,
+        loaderData: undefined,
+        handle: { title: 'Home' },
+      },
       {
         id: '1',
         pathname: '/dashboard',
@@ -52,7 +73,14 @@ describe('TitleHandler', () => {
 
   it('should set document title to "Roomly" when match handle has no title property', () => {
     vi.mocked(useMatches).mockReturnValue([
-      { id: '0', pathname: '/', params: {}, data: undefined, loaderData: undefined, handle: { someOtherProp: true } },
+      {
+        id: '0',
+        pathname: '/',
+        params: {},
+        data: undefined,
+        loaderData: undefined,
+        handle: { someOtherProp: true },
+      },
     ]);
 
     render(<TitleHandler />);
