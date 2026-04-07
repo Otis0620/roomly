@@ -13,12 +13,12 @@ export default function LoginPage() {
 
       <LoginForm />
 
-      <p className="mt-4 text-center text-sm text-gray-300">
-        Don't have an account?{' '}
+      <div className="mt-4 flex items-center justify-center gap-1 text-sm text-gray-300">
+        Don't have an account?
         <Link to="/register" className="text-navy-600 hover:underline">
           Register
         </Link>
-      </p>
+      </div>
     </div>
   );
 }
