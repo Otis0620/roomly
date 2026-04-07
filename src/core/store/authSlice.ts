@@ -1,8 +1,8 @@
-import type { RootState } from '@/core/store/store';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import type { AuthUser } from '../types/authTypes';
+import type { RootState } from './store';
+import type { AuthUser } from '../types/userTypes';
 
 interface AuthState {
   currentUser: AuthUser | null;
@@ -22,7 +22,7 @@ const authSlice = createSlice({
      * @param state - The current auth state
      * @param action - The action containing the authenticated user
      */
-    setCurrentUser(state, action: PayloadAction<AuthUser>) {
+    setCurrentUser(state, action: PayloadAction<AuthUser>): void {
       state.currentUser = action.payload;
     },
 
@@ -31,7 +31,7 @@ const authSlice = createSlice({
      *
      * @param state - The current auth state
      */
-    clearCurrentUser(state) {
+    clearCurrentUser(state): void {
       state.currentUser = null;
     },
   },
@@ -45,7 +45,7 @@ export const { setCurrentUser, clearCurrentUser } = authSlice.actions;
  * @param state - The root Redux state
  * @returns The current authenticated user, or null if not authenticated
  */
-export const selectCurrentUser = (state: RootState) => state.auth.currentUser;
+export const selectCurrentUser = (state: RootState): AuthUser | null => state.auth.currentUser;
 
 /**
  * Selects whether the user is currently authenticated.
@@ -53,6 +53,6 @@ export const selectCurrentUser = (state: RootState) => state.auth.currentUser;
  * @param state - The root Redux state
  * @returns True if a user is authenticated, false otherwise
  */
-export const selectIsAuthenticated = (state: RootState) => state.auth.currentUser !== null;
+export const selectIsAuthenticated = (state: RootState): boolean => state.auth.currentUser !== null;
 
 export default authSlice.reducer;

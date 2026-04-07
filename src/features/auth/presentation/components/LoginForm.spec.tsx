@@ -3,12 +3,12 @@ import 'reflect-metadata';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
+import authReducer from '@/core/store/authSlice';
 import { configureStore } from '@reduxjs/toolkit';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import LoginForm from './LoginForm';
 import type { AuthService } from '../../services/AuthService';
-import authReducer from '../../store/authSlice';
 
 const mockLogin = vi.fn();
 const mockAuthService = { login: mockLogin } as unknown as AuthService;

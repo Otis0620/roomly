@@ -6,9 +6,15 @@ import authReducer, {
   selectIsAuthenticated,
   setCurrentUser,
 } from './authSlice';
-import type { AuthUser } from '../types/authTypes';
+import type { AuthUser } from '../types/userTypes';
 
-const user: AuthUser = { id: '1', email: 'user@roomly.com', role: 'guest' };
+const user: AuthUser = {
+  id: '1',
+  email: 'user@roomly.com',
+  firstName: 'James',
+  lastName: 'Brown',
+  role: 'guest',
+};
 
 function makeStore() {
   return configureStore({ reducer: { auth: authReducer } });

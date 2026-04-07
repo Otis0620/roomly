@@ -1,16 +1,17 @@
 import { inject, injectable } from 'inversify';
 
 import { IDENTIFIERS } from '@/core/di/identifiers';
+import type { AuthUser } from '@/core/types/userTypes';
 
 import type { AuthApi } from '../api/AuthApi';
-import type { AuthUser, LoginRequest } from '../types/authTypes';
+import type { LoginRequest } from '../types/authTypes';
 import { setAccessToken } from '../utils/accessToken';
 
-/**
- * Handles authentication business logic for the auth feature.
- */
 @injectable()
 export class AuthService {
+  /**
+   * @param authApi - The authentication API client
+   */
   constructor(@inject(IDENTIFIERS.AuthApi) private readonly authApi: AuthApi) {}
 
   /**
