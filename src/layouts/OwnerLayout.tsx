@@ -37,16 +37,17 @@ const navLinks: NavLink[] = [
 ];
 
 export default function OwnerLayout() {
-  const currentUser = useAppSelector(selectCurrentUser);
-
-  console.log(currentUser?.firstName);
+  const currentUser = useAppSelector(selectCurrentUser)!;
 
   return (
     <div className="flex h-screen">
       <Sidebar>
         <SidebarHeader />
         <SidebarNav navLinks={navLinks} />
-        <SidebarFooter />
+        <SidebarFooter
+          fullName={`${currentUser.firstName} ${currentUser.lastName}`}
+          role={currentUser.role}
+        />
       </Sidebar>
 
       <main className="flex-1 overflow-auto">
