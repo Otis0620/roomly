@@ -24,10 +24,10 @@ describe('SidebarFooter', () => {
     expect(screen.getByText('Hotel Guest')).toBeInTheDocument();
   });
 
-  it('should render "Admin" for the admin role', () => {
+  it('should render "Administrator" for the admin role', () => {
     render(<SidebarFooter fullName="Admin User" role={UserRole.admin} />);
 
-    expect(screen.getByText('Admin')).toBeInTheDocument();
+    expect(screen.getByText('Administrator')).toBeInTheDocument();
   });
 
   it('should render a sign out button', () => {

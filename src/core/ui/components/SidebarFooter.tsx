@@ -3,7 +3,7 @@ import { UserRole } from '@/core/types/userTypes';
 const roleLabel: Record<UserRole, string> = {
   [UserRole.guest]: 'Hotel Guest',
   [UserRole.owner]: 'Hotel Owner',
-  [UserRole.admin]: 'Admin',
+  [UserRole.admin]: 'Administrator',
 };
 
 interface Props {
