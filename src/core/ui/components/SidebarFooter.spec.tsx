@@ -18,10 +18,10 @@ describe('SidebarFooter', () => {
     expect(screen.getByText('Hotel Owner')).toBeInTheDocument();
   });
 
-  it('should render "Hotel Guest" for the guest role', () => {
+  it('should render "Guest" for the guest role', () => {
     render(<SidebarFooter fullName="John Doe" role={UserRole.guest} />);
 
-    expect(screen.getByText('Hotel Guest')).toBeInTheDocument();
+    expect(screen.getByText('Guest')).toBeInTheDocument();
   });
 
   it('should render "Administrator" for the admin role', () => {

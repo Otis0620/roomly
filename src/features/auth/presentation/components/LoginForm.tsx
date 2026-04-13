@@ -97,7 +97,7 @@ export default function LoginForm() {
 
       dispatch(setCurrentUser(user));
 
-      navigate('/admin/dashboard');
+      navigate('/hotels');
     } catch {
       setApiError('Invalid email or password. Please try again.');
     } finally {

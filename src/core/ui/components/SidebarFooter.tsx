@@ -1,7 +1,7 @@
 import { UserRole } from '@/core/types/userTypes';
 
 const roleLabel: Record<UserRole, string> = {
-  [UserRole.guest]: 'Hotel Guest',
+  [UserRole.guest]: 'Guest',
   [UserRole.owner]: 'Hotel Owner',
   [UserRole.admin]: 'Administrator',
 };
